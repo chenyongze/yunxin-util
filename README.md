@@ -4,7 +4,7 @@
 
 # 安装
 
-推荐使用 Composer：`composer require nizerin/yun-xin-helper`
+推荐使用 Composer：`composer require chenyongze/yunxin-util ^1.0`
 
 # 使用
 ### 创建实例
@@ -49,6 +49,3 @@ $entrance->chat()->sendTextBatchMsg($accidFrom, $accidsTo, $text);
 # 发送自定义系统通知
 $entrance->chat()->sendAttachMsg($from, CHAT::CHAT_ONT_TO_ONE, $to, $attach);
 ```
-
-### 更多功能请查看 SRC
-因为实在没时间写文档，后面我会逐渐完善，各位见谅
