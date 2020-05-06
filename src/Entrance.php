@@ -6,6 +6,7 @@ namespace YunxinUtil;
 use YunxinUtil\Api\Chat;
 use YunxinUtil\Api\ChatRoom;
 use YunxinUtil\Api\User;
+use YunxinUtil\Api\InteractionRoom;
 
 /**
  * 入口类
@@ -76,6 +77,19 @@ class Entrance
         return $this->instances[$key];
     }
 
+    /**
+     * @return interactionRoom
+     */
+    public function interactionRoom()
+    {
+        $key = 'chatRoom';
+        if (!array_key_exists($key, $this->instances)) {
+            $chatRoom = new InteractionRoom($this->appKey, $this->appSecrt);
+            $this->instances[$key] = $chatRoom;
+        }
+        return $this->instances[$key];
+    }
+
 
     /**
      * 抄送消息验证检验码
@@ -86,6 +100,6 @@ class Entrance
      */
     public function isLegalChecksum($body, $curTime, $checksumPost)
     {
-        return sha1($this->appSecrt.md5($body).$curTime) === $checksumPost;
+        return sha1($this->appSecrt . md5($body) . $curTime) === $checksumPost;
     }
 }
