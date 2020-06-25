@@ -76,13 +76,12 @@ class Entrance
         }
         return $this->instances[$key];
     }
-
     /**
-     * @return interactionRoom
+     * @return ChatRoom
      */
     public function interactionRoom()
     {
-        $key = 'chatRoom';
+        $key = 'interactionRoom';
         if (!array_key_exists($key, $this->instances)) {
             $chatRoom = new InteractionRoom($this->appKey, $this->appSecrt);
             $this->instances[$key] = $chatRoom;
